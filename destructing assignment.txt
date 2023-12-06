@@ -1,0 +1,124 @@
+1. Count the occurrences.
+You are building a word count generator that will take a large string of text as input and output the words and
+the number of times they are present in the string. Your task is to write a function that can count the
+occurrences of each word in the string and return a Map containing each word's count. For simplicity, you can
+assume that the string only contains alphabetic characters and spaces.
+Ans-function wordCount(inputString) {
+    // Initialize a Map to store word counts
+    const wordCounts = new Map();
+
+    // Split the string into words
+    const words = inputString.split(/\s+/);
+
+    // Count the occurrences of each word
+    words.forEach(word => {
+        // Convert the word to lowercase to ensure case-insensitivity
+        const lowercaseWord = word.toLowerCase();
+
+        // Update the count in the Map
+        wordCounts.set(lowercaseWord, (wordCounts.get(lowercaseWord) || 0) + 1);
+    });
+
+    return wordCounts;
+}
+
+// Example usage:
+const inputString = "This is a sample string. This string contains some words. Sample string!";
+const result = wordCount(inputString);
+
+// Print the result
+result.forEach((count, word) => {
+    console.log(`${word}: ${count}`);
+});
+2. 2. Only unique items are allowed.
+You are building a program that takes an array of numbers as input and you need to remove all the duplicates
+from the array. You want to write a function that can accomplish this task efficiently and returns a new set that
+contains only the unique elements.
+Ans-function removeDuplicates(arr) {
+    // Use a Set to automatically remove duplicates
+    const uniqueSet = new Set(arr);
+
+    // Convert the Set back to an array (if needed)
+    const uniqueArray = Array.from(uniqueSet);
+
+    return uniqueArray;
+}
+
+// Example usage:
+const inputArray = [1, 2, 2, 3, 4, 4, 5];
+const result = removeDuplicates(inputArray);
+
+// Print the result
+console.log(result);
+3. Swap the values.
+You are working on a project that requires you to swap the values of two variables without using a temporary
+variable. You decide to write a function that takes two variables as input and swaps their values using
+destructuring assignment with an array. The function should take the two variables as arguments, destructure
+them into an array, and then swap their positions within the array. Finally, the function should return an array
+with the swapped values. For example, if the function is called with the arguments x = 5 and y = 10, it should
+return an array [10, 5] with x now equal to 10 and y equal to 5.
+Ans-function swapValues(x, y) {
+    // Use array destructuring to swap values
+    [x, y] = [y, x];
+
+    // Return an array with swapped values
+    return [x, y];
+}
+
+// Example usage:
+let a = 5;
+let b = 10;
+const result = swapValues(a, b);
+
+// Update the original variables with swapped values
+[a, b] = result;
+
+// Print the result
+console.log(result);
+console.log("a:", a); // Output: 10
+console.log("b:", b); // Output: 5
+4. Access random elements.
+You are building a program that takes an array of numbers as input and you need to extract the first, second,
+and last elements of the array. You decide to write a function that can accomplish this task using destructuring
+assignment with an array. The function should take the array as an argument, destructure it into three variables
+representing the first, second, and last elements, and then return an array with these three values. For example,
+if the input array is [1, 2, 3, 4, 5], the function should return an array [1, 2, 5].
+Ans-function extractElements(arr) {
+    // Use array destructuring to extract the first, second, and last elements
+    const [first, second, ...rest] = arr;
+    
+    // Access the last element from the rest using array pop
+    const last = rest.pop();
+
+    // Return an array with the extracted values
+    return [first, second, last];
+}
+
+// Example usage:
+const inputArray = [1, 2, 3, 4, 5];
+const result = extractElements(inputArray);
+
+// Print the result
+console.log(result); // Output: [1, 2, 5]
+5. Min and max values.
+You are building a program that needs to find the maximum and minimum values in an array of numbers. You
+decide to write a function that can accomplish this task by taking an array of numbers as input and using the
+spread operator with the Math methods max() and min(). The function should return an object with two
+properties, max, and min, representing the maximum and minimum values in the input array, respectively. For
+example, if the input array is [5, 2, 7, 1, 9], the function should return an object { max: 9, min: 1 }.
+Ans-function findMinMax(arr) {
+    // Use spread operator with Math.max() and Math.min() to find max and min values
+    const max = Math.max(...arr);
+    const min = Math.min(...arr);
+
+    // Return an object with max and min properties
+    return { max, min };
+}
+
+// Example usage:
+const inputArray = [5, 2, 7, 1, 9];
+const result = findMinMax(inputArray);
+
+// Print the result
+console.log(result); // Output: { max: 9, min: 1 }
+
