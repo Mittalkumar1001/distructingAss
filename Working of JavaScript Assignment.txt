@@ -1,0 +1,79 @@
+1. Write a function called "add Number" that take to two number as arguments and return their sum. call the function before  it is declared to demonstrating hoisting.
+Ans- // Call the function before declaration to demonstrate hoisting
+console.log(addNumber(5, 7)); // Output: undefined
+
+// Function declaration (hoisted)
+function addNumber(num1, num2) {
+  return num1 + num2;
+}
+
+// Call the function after declaration
+console.log(addNumber(10, 15)); // O
+2.Write a function  called “multiplayNumbers” that takes two numbers as arguments and returns their product. Use function expression to define the function and call the function before it is declared to demonstrate hosting.
+Ans-	// Call the function before declaration to demonstrate hoisting
+console.log(multiplyNumbers(3, 4)); // Output: TypeError: multiplyNumbers is not a function
+
+// Function expression (hoisted differently than function declarations)
+var multiplyNumbers = function(num1, num2) {
+  return num1 * num2;
+};
+
+// Call the function after declaration
+console.log(multiplyNumbers(5, 6)); 
+3.Write a function that takes two numbers as arguments and returns their sum. Declare a version inside the function using the var keyword and log its value to the console before it is assigned a value ato demonstrate variable hosting.
+Ans-function addNumbers(num1, num2) {
+  // Log the value before assignment to demonstrate variable hoisting
+  console.log("Before assignment:", sum);
+
+  // Declare a variable using the var keyword
+  var sum;
+
+  // Assign the value by calculating the sum
+  sum = num1 + num2;
+
+  // Log the value after assignment
+  console.log("After assignment:", sum);
+
+  // Return the sum
+  return sum;
+}
+
+// Call the function
+var result = addNumbers(8, 12);
+// Output:
+// Before assignment: undefined
+// After assignment: 20
+
+console.log("Result:", result); // Output: Result: 20
+4.Declare three variable, one using let , one using var, and one using const, all inside a block scope. Assign them values and log their values to the console before and after they are declared demonstrate variable
+Hosting.
+Ans- {
+  // Declare and log a variable using let
+  console.log("Before let declaration:", variableLet); // Output: ReferenceError: variableLet is not defined
+  let variableLet = 10;
+  console.log("After let declaration:", variableLet); // Output: After let declaration: 10
+
+  // Declare and log a variable using var
+  console.log("Before var declaration:", variableVar); // Output: undefined
+  var variableVar = 20;
+  console.log("After var declaration:", variableVar); // Output: After var declaration: 20
+
+  // Declare and log a variable using const
+  console.log("Before const declaration:", variableConst); // Output: ReferenceError: variableConst is not defined
+  const variableConst = 30;
+  console.log("After const declaration:", variableConst); // Output: After const declaration: 30
+}
+5.Declare a variable using let inside a block scope and attempt to log its value to the console before it is assigned a value to demonstrate the temporal dead zone.
+Ans- {
+  // Attempt to log the value of a variable before it is assigned
+  console.log("Before assignment:", variableLet); // Output: ReferenceError: Cannot access 'variableLet' before initialization
+
+  // Declare the variable using let
+  let variableLet;
+
+  // Assign a value to the variable
+  variableLet = 42;
+
+  // Log the value after assignment
+  console.log("After assignment:", variableLet); // Output: After assignment: 42
+}
